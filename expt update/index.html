@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = 'en' translate = 'no'>
+
+<head>
+    <meta charset = 'utf-8'>
+    <title>PSYCH EXPERIMENT</title>
+    <link rel = 'stylesheet' href = 'style.css' />
+</head>
+
+<body>
+
+    <!--PLEDGE-->
+    <div class = 'fixedbox' id = 'pledge_box'>
+        <div class = 'bold'>Will you read all the instructions carefully and treat this study seriously?</div>
+        <label><div class = 'option'><input class = 'radio' type = 'radio' name = 'pledge' value = '1' /><p class = 'option_text'>YES</p></div></label>
+        <label><div class = 'option'><input class = 'radio' type = 'radio' name = 'pledge' value = '0' /><p class = 'option_text'>NO</p></div></label>
+        <button class = 'button' onclick = 'SUBMIT_PLEDGE_Q()'>SUBMIT</button>
+        <p class = 'warning' id = 'pledge_warning'></p>
+    </div>
+
+    <!--INSTRUCTIONS-->
+    <div class = 'fixedbox' id = 'instr_box'>
+        <p class = 'instructions' id = 'instr_text'></p>
+        <button class = 'button' id = 'next_button' onclick = 'instr.next()'>NEXT</button>
+        <div class = 'fixedbox' id = 'consent_box'>
+            <div class = 'consent_instr'>Please read the consent form below.</div>
+            <div class = 'form_area'>
+                <strong>CONSENT FORM</strong>
+            </div>
+        
+        </div>
+    </div>
+
+    <!--INSTRUCTIONS QUIZ-->
+    <div class = 'fixedbox' id = 'quiz_box'>
+        <div class='bold'>What is your job in this experiment?</div>
+        <label><div class='option'><input class='radio' type='radio' name='quiz' value='forgot' /><p class='option-text'>Select this option if you do not remember the instructions.</p></div></label>
+        <label><div class='option'><input class='radio' type='radio' name='quiz' value='option1'/><p class = 'option_text'>Answering a prompt question followed by an image rating task.</p></div></label>
+        <label><div class='option'><input class='radio' type='radio' name='quiz' value='option2'/><p class = 'option_text'>Providing written opinions on various artwork.</p></div></label>
+        <button class='button' onclick='SUBMIT_INSTR_Q()'>SUBMIT</button>
+        <p class='warning' id='quiz_warning'></p>
+    </div>
+
+    <!--RATING TASK-->
+    <div class = 'fixedbox' id = 'rating'>
+        <div class = 'instruc'>How visually pleasing is this image?</div>
+        <div class = "stimuli" id = "stimuli"></div>
+    
+        <div class='rating_area' id='rating_area'>
+            <label><div class = 'rating_button r6' id = 'r6'><input class = 'radio' type = 'radio' name = 'liking' value = '1'><p class = 'rating_labels'>1</p></div></label>
+            <label><div class = 'rating_button r5' id = 'r5'><input class = 'radio' type = 'radio' name = 'liking' value = '2'><p class = 'rating_labels'>2</p></div></label>
+            <label><div class = 'rating_button r4' id = 'r4'><input class = 'radio' type = 'radio' name = 'liking' value = '3'><p class = 'rating_labels'>3</p></div></label>
+            <label><div class = 'rating_button r3' id = 'r3'><input class = 'radio' type = 'radio' name = 'liking' value = '4'><p class = 'rating_labels'>4</p></div></label>
+            <label><div class = 'rating_button r2' id = 'r2'><input class = 'radio' type = 'radio' name = 'liking' value = '5'><p class = 'rating_labels'>5</p></div></label>
+            <label><div class = 'rating_button r2' id = 'r2'><input class = 'radio' type = 'radio' name = 'liking' value = '5'><p class = 'rating_labels'>6</p></div></label>
+        </div>
+    </div>
+
+    <!--BIF TASK-->
+    <div class = 'fixedbox' id = 'BIF'></div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='main.js'></script>
+</html>
