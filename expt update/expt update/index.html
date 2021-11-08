@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang = 'en' translate = 'no'>
+
+<head>
+    <meta charset = 'utf-8'>
+    <title>PSYCH EXPERIMENT</title>
+    <link rel = 'stylesheet' href = 'style.css' />
+</head>
+
+<body>
+
+    <!--PLEDGE-->
+    <div class = 'fixedbox' id = 'pledge_box'>
+        <div class = 'bold'>Will you read all the instructions carefully and treat this study seriously?</div>
+        <label><div class = 'selection'><input class = 'radio' type = 'radio' name = 'pledge' value = '1' /><p class = 'selection_text'>Yes.</p></div></label>
+        <label><div class = 'selection'><input class = 'radio' type = 'radio' name = 'pledge' value = '0' /><p class = 'selection_text'>No.</p></div></label>
+        <button class = 'button' onclick = 'SUBMIT_PLEDGE_Q()'>SUBMIT</button>
+        <p class = 'warning' id = 'pledge_warning'></p>
+    </div>
+
+    <!--INSTRUCTIONS-->
+    <div class = 'fixedbox' id = 'instr_box'>
+        <p class = 'instructions' id = 'instr_text'></p>
+        <button class = 'button' id = 'next_button' onclick = 'instr.next()'>NEXT</button>
+        <div class = 'pageBox' id = 'consent_box'>
+            <div class = 'consent_instr'>Please read the consent form below.</div>
+            <div class = 'form_area'>
+                <strong>CONSENT FORM</strong>
+            </div>
+        
+        </div>
+    </div>
+
+    <!--INSTRUCTIONS QUIZ-->
+    <div class = 'fixedbox' id = 'quiz_box'>
+        <div class='bold' text-align = 'center'>What is your job in this experiment?</div>
+        <label><div class='selection'><input class='radio' type='radio' name='quiz' value='forgot' /><p class='selection_text'>Select this option if you do not remember the instructions.</p></div></label>
+        <label><div class='selection'><input class='radio' type='radio' name='quiz' value='option1'/><p class = 'selection_text'>Responding to a prompt question and rating images.</p></div></label>
+        <label><div class='selection'><input class='radio' type='radio' name='quiz' value='option2'/><p class = 'selection_text'>Providing written opinions on various artwork.</p></div></label>
+        <button class='button' onclick='SUBMIT_INSTR_Q()'>SUBMIT</button>
+        <p class='warning' id='quiz_warning'></p>
+    </div>
+
+    <!--DISTANCE INDUCTION-->
+    <div class = 'fixedbox' id = 'dist_ind_1'>
+        <div class = 'boldText'>Imagine that you are a student who has just graduated from art school. Because of your promise, you have just been hired by the local art association
+             to plan and develop a small art gallery to be held in your city tomorrow. In a bulleted list, please write about how you envision the gallery.<br></br></div>
+        <div class = 'requirement'>**A total of 5 bullet points are required.<br></br></div>
+        
+        <ul>
+            <li>e.g., an arched entrance with a large poster detailing the featured artists off to the side</li><br></br>
+            <li><textarea id = 'present prime' name = 'present prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+            <li><textarea id = 'present prime' name = 'present prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+            <li><textarea id = 'present prime' name = 'present prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+            <li><textarea id = 'present prime' name = 'present prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+            <li><textarea id = 'present prime' name = 'present prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+        </ul>
+        <button class = 'button' onclick = 'SHOW_RATING()'>SUBMIT</button>
+    </div>
+
+    <div class = 'fixedbox' id = 'dist_ind_2'>
+        <div class = 'boldText'>Imagine that you are a student who will graduate from art school next year. Because of your promise, you have been hired by an art association to plan 
+            and develop a small art gallery to be held in Grand Fenswick, Andorra 5 years from now. In a bulleted list, please write about how you envision the gallery.<br></br></div>
+        <div class = 'requirement'>**A total of 5 bullet points are required.<br></br></div>
+        
+        <ul>
+            <li>e.g., an arched entrance with a large poster detailing the featured artists off to the side</li><br></br>
+            <li><textarea id = 'future prime' name = 'future prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+            <li><textarea id = 'future prime' name = 'future prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+            <li><textarea id = 'future prime' name = 'future prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+            <li><textarea id = 'future prime' name = 'future prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+            <li><textarea id = 'future prime' name = 'future prime' rows = "1" cols = "70" placeholder = '*response required*'></textarea></li><br></br>
+        </ul>
+        <button class = 'button' onclick = 'SHOW_RATING()'>NEXT</button>
+    </div>
+
+    </div>
+    <!--RATING TASK-->
+    <div class='pageBox' id='trialBox'>
+        <div class='testImgPlaceHolder'>
+            <img id='testImg' src='stimuli/blank.jpg' alt='Image Error: Please submit the HIT with the code "IMG-ERROR" to receive your payment.' draggable='false'/>
+        </div>
+        <div class='buffer' alt=''>
+            <img id='bufferImg' src='stimuli/blank.jpg' alt='' />
+        </div>
+        <div id='ratingContainer' class='ratingContainer'>
+            <div class = 'rating_right'><p class = 'ratingLabels'>Very Visually Pleasing</p></div>
+            <div class='ratingButton r6' id='r6'><p class='ratingLabels'>6</p></div>
+            <div class='ratingButton r5' id='r5'><p class='ratingLabels'>5</p></div>
+            <div class='ratingButton r4' id='r4'><p class='ratingLabels'>4</p></div>
+            <div class='ratingButton r3' id='r3'><p class='ratingLabels'>3</p></div>
+            <div class='ratingButton r2' id='r2'><p class='ratingLabels'>2</p></div>
+            <div class='ratingButton r1' id='r1'><p class='ratingLabels'>1</p></div>
+            <div class = 'rating_left'><p class = 'ratingLabels'>Very Visually Displeasing</p></div> 
+        </div>
+    </div>
+
+    <!--BIF TASK-->
+    <div class = 'fixedbox' id = 'cont_instr'>Great! You have just completed the bulk of this experiment. There is just one more section left which will take
+            around 7 minutes to complete. You may take a break if you wish, or press 'SPACE' to continue.
+        </div>
+    <div class = 'fixedbox' id = 'BIF_instr'>
+        <p>In the last part of this experiment, you will be given an action and will have to select the option
+            that you think best describes it.</p>
+        <button class = 'button' onclick = 'BIF_Q1()'>BEGIN</button>
+    </div>
+
+    <div class = 'fixedbox' id = 'BIF_Q1'>
+        <div class = 'boldText'>Making a list.</div>
+        <label><div class = 'selection'><input class = 'radio' type = 'radio' name = 'BIF' value = 'H' /><p class = 'selection_text'>Getting organized.</p></div></label>
+        <label><div class = 'selection'><input class = 'radio' type = 'radio' name = 'BIF' value = 'L' /><p class = 'selection_text'>Writing things down.</p></div></label>
+        <button class = 'button' onclick = 'BIF_Q2()'>NEXT</button>
+    </div>
+
+    <div class = 'fixedbox' id = 'BIF_Q2'>
+        <div class = 'boldText'>Reading.</div>
+        <label><div class = 'selection'><input class = 'radio' type = 'radio' name = 'BIF' value = 'L' /><p class = 'selection_text'>Following lines of print.</p></div></label>
+        <label><div class = 'selection'><input class = 'radio' type = 'radio' name = 'BIF' value = 'H' /><p class = 'selection_text'>Gaining knowledge.</p></div></label>
+        <button class = 'button' onclick = 'BIF_Q3()'>NEXT</button>
+    </div>
+
+    <div class = 'fixedbox' id = 'BIF_Q3'>
+        <div class = 'boldText'>Joining the Army.</div>
+        <label><div class = 'selection'><input class = 'radio' type = 'radio' name = 'BIF' value = 'H' /><p class = 'selection_text'>Helping the Nation's defense.</p></div></label>
+        <label><div class = 'selection'><input class = 'radio' type = 'radio' name = 'BIF' value = 'L' /><p class = 'selection_text'>Signing up.</p></div></label>
+        <button class = 'button' onclick = 'DEBRIEFING()'>NEXT</button>
+    </div>
+
+    <!--DEBRIEFING-->
+    <div class='fixedbox' id='questions_box'>
+        <div class='question'>
+            You are almost done! Please answer these last 4 questions:
+        </div>
+        <div class='question'>
+            <p class='bold'>Did you complete this experiment seriously throughout (i.e., without responding randomly)?</p>
+            <p class='small-dim'>You will still receive SONA credit, no matter what you respond. Please be honest for science!</p>
+            <label><div class = 'selection'><input class='radio' type='radio' name='serious' value='0' /><p class='selection_text'>No, I didn't.</p></div></label>
+            <label><div class = 'selection'><input class='radio' type='radio' name='serious' value='1' /><p class='selection_text'>Yes, I did.</p></div></label>
+        </div>
+        <div class='question'>
+            <p class='bold'>Was any part of the procedure unclear? Did you have any problems completing any of the tasks?</p>
+            <textarea id='problems' rows = '15' columns = '100'></textarea>
+        </div>
+        <div class='question'>
+            <p class='bold'>What is your gender?</p>
+            <div class = 'dropdown'>
+                <button class = 'dropbtn'>Select One</button>
+                <div class='dropdown_content'>
+                    <p>Female</p>
+                    <p>Male</p>
+                    <p>Other</p>
+                    <p>I prefer not to say</p>
+                </div>
+            </div>
+        </div>
+        <div class='question'>
+            <p class='bold'>What is your age?</p>
+            <input type='number' id='age' min='0' max='199'/>
+        </div>
+        <button class='button' onclick='SUBMIT_DEBRIEFING_Q()'>SUBMIT</button>
+        <p class='warning' id='questions-warning'></p>
+    </div>
+
+    <div class = 'fixedbox' id = 'END'>You are done with this experiment. Please return to the SONA homepage.</div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='main.js'></script>
+</html>
